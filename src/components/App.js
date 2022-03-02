@@ -9,7 +9,8 @@ function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false)
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false)
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false)
-  const [selectedCard, setselectedCard] = React.useState()
+  const [isCoinfPopupOpen, setCoinfPopupOpen] = React.useState(false)
+  const [selectedCard, setselectedCard] = React.useState({})
   const [isPopupImageOpen, setPopupImageOpen] = React.useState(false)
 
   function handleEditAvatarClick () {
@@ -24,6 +25,10 @@ setEditProfilePopupOpen(true)
 setAddPlacePopupOpen(true)
     };
 
+    function handleDeleteClick () {
+      setCoinfPopupOpen(true)
+    };
+
   function handleCardClick (data) {
     setselectedCard(data)
     setPopupImageOpen(true)
@@ -33,6 +38,7 @@ setAddPlacePopupOpen(true)
     setEditAvatarPopupOpen(false)
     setEditProfilePopupOpen(false)
     setAddPlacePopupOpen(false)
+    setCoinfPopupOpen(false)
     setPopupImageOpen(false)
   }
 
@@ -45,6 +51,7 @@ setAddPlacePopupOpen(true)
   onAddPlace = {handleAddPlaceClick}
   onEditProfile = {handleEditProfileClick}
   onCardClick = {handleCardClick}
+  onDeleteCard ={handleDeleteClick}
   />
   <Footer />
   </div>
@@ -52,7 +59,7 @@ setAddPlacePopupOpen(true)
   buttonName='Создать' onClose={closeAllPopups} >
   <label className='popup__form-field'>
   <input type="url" className="popup__text popup__input" id="avatar-input" name="avatar" placeholder="Аватар"
-    required minLength="2" />
+    required minLength="2" placeholder='Новый Аватар' />
   <span className="avatar-input-error popup__error"></span>
 </label>
   </PopupWithForm>
@@ -61,12 +68,12 @@ setAddPlacePopupOpen(true)
   buttonName='Сохранить' onClose={closeAllPopups} >
   <label className='popup__form-field'>
           <input type="text" className="popup__input popup__text" id="name-input" name="name" required minLength="2"
-            maxLength="40" />
+            maxLength="40" placeholder='Имя'/>
           <span className="name-input-error popup__error"></span>
         </label>
         <label className='popup__form-field'>
           <input type="text" className="popup__input popup__text" id="description-input" name="description" required
-            minLength="2" maxLength="200" />
+            minLength="2" maxLength="200" placeholder='О себе' />
           <span className="description-input-error popup__error"></span>
         </label>
   </PopupWithForm>
@@ -75,12 +82,12 @@ setAddPlacePopupOpen(true)
   buttonName='Создать' onClose={closeAllPopups} >
   <label className='popup__form-field'>
           <input type="text" className="popup__text popup__input" id="card-input" name="name" placeholder="Название"
-            required minLength="2" maxLength="30" />
+            required minLength="2" maxLength="30" placeholder='Название'/>
           <span className="card-input-error popup__error"></span>
         </label>
         <label className='popup__form-field'>
           <input type="url" className="popup__text popup__input" id="link-input" name="link"
-            placeholder="Ссылка на картинку" required />
+            placeholder="Ссылка на картинку" required placeholder='Ссылка'/>
           <span className="link-input-error popup__error"></span>
         </label>
   </PopupWithForm>
@@ -91,16 +98,9 @@ setAddPlacePopupOpen(true)
   onClose={closeAllPopups} 
   >
   </ImagePopup>
-
-  <div className="popup popup_confirmation">
-    <div className="popup__container">
-      <h2 className="popup__title popup__title_coif">Вы уверены?</h2>
-      <button type="submit" className="popup__save-button popup__save-button_coinf">Да</button>
-      <div>
-        <button type="button" className="popup__close-button"></button>
-      </div>
-    </div>
-  </div>
+  <PopupWithForm name='confirmation' title='Вы уверены?' isOpen={isCoinfPopupOpen} 
+  buttonName='Да' >
+  </PopupWithForm>
 </div>
   );
 }

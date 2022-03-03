@@ -59,7 +59,7 @@ setAddPlacePopupOpen(true)
   buttonName='Создать' onClose={closeAllPopups} >
   <label className='popup__form-field'>
   <input type="url" className="popup__text popup__input" id="avatar-input" name="avatar" placeholder="Аватар"
-    required minLength="2" placeholder='Новый Аватар' />
+    required minLength="2" />
   <span className="avatar-input-error popup__error"></span>
 </label>
   </PopupWithForm>
@@ -82,12 +82,12 @@ setAddPlacePopupOpen(true)
   buttonName='Создать' onClose={closeAllPopups} >
   <label className='popup__form-field'>
           <input type="text" className="popup__text popup__input" id="card-input" name="name" placeholder="Название"
-            required minLength="2" maxLength="30" placeholder='Название'/>
+            required minLength="2" maxLength="30" />
           <span className="card-input-error popup__error"></span>
         </label>
         <label className='popup__form-field'>
           <input type="url" className="popup__text popup__input" id="link-input" name="link"
-            placeholder="Ссылка на картинку" required placeholder='Ссылка'/>
+            placeholder="Ссылка на картинку" required />
           <span className="link-input-error popup__error"></span>
         </label>
   </PopupWithForm>

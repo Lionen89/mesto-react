@@ -1,7 +1,7 @@
 export class Api {
     constructor(url, headers) {
         this._url = url;
-            this._headers = headers
+        this._headers = headers
     };
 
     _checkResults(res) {
@@ -76,11 +76,10 @@ export class Api {
             .then(this._checkResults)
     }
 
-    changeLikeCardStatus(cardId, isLiked){
+    changeLikeCardStatus(cardId, isLiked) {
         if (isLiked) {
             return this._deleteLike(cardId)
-        }
-        else {
+        } else {
             return this._setLike(cardId)
         }
     }
@@ -101,5 +100,5 @@ const myHeaders = {
     authorization: 'cfb2b6f5-426e-4056-b62c-e6e89dc9d392',
     'Content-Type': 'application/json',
 };
-const ApiReact = new Api(myUrl, myHeaders);
-export default ApiReact
+const apiReact = new Api(myUrl, myHeaders);
+export default apiReact

@@ -5,4 +5,7 @@
     object-fit: cover;
     position: relative;
     transition: all 0.2s linear 0s;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }

@@ -10,7 +10,7 @@
     right: 20px;
     border: none;
     cursor: pointer;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 .element__trash:hover{
     opacity: 0.6;

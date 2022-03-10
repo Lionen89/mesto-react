@@ -11,6 +11,7 @@ function Card(props) {
   const cardLikeButtonClassName = `element__heart ${
     isLiked ? "element__heart_active" : ""
   }`;
+
   function handleClick() {
     props.onCardClick(props.card);
   }
@@ -18,10 +19,11 @@ function Card(props) {
     props.onCardLike(props.card);
   }
   function handleDeleteClick() {
+    // props.onConfirmationfPopup
     props.onCardDelete(props.card);
   }
   return (
-    <article className="element">
+    <article className="element" _id={props.card._id}>
       <img
         className="element__image"
         onClick={handleClick}

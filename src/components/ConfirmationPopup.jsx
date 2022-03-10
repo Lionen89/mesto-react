@@ -1,7 +1,7 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
 
-function CoinformationPopup(props) {
+function ConfirmationPopup(props) {
   function handleSubmit(e) {
     e.preventDefault();
     props.onCardDelete();
@@ -17,4 +17,4 @@ function CoinformationPopup(props) {
     ></PopupWithForm>
   );
 }
-export default CoinformationPopup;
+export default ConfirmationPopup;

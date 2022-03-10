@@ -8,14 +8,14 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
-import CoinformationPopup from "./CoinformationPopup";
+// import ConfirmationPopup from "./ConfirmationPopup";
 
 function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] =
     React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
-  const [isCoinfPopupOpen, setIsCoinfPopupOpen] = React.useState(false);
+  // const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState({});
   const [isPopupImageOpen, setPopupImageOpen] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
@@ -43,7 +43,7 @@ function App() {
   }
 
   // function handleTrashClick() {
-  //   setIsCoinfPopupOpen(true);
+  //   setIsConfirmationPopupOpen(true);
   // }
 
   function handleCardClick(data) {
@@ -55,7 +55,7 @@ function App() {
     setIsEditAvatarPopupOpen(false);
     setEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
-    setIsCoinfPopupOpen(false);
+    // setIsConfirmationPopupOpen(false);
     setPopupImageOpen(false);
   }
   function handleUpdateUser(data) {
@@ -88,11 +88,12 @@ function App() {
   }
 
   function handleCardDelete(card) {
-    let newCards = cards.filter((element) => element._id !== card._id);
+    // let newCards = cards.filter((element) => element._id !== card._id);
     apiReact.deleteCard(card._id)
     .then(() => {
-      setCards(newCards);
-    });
+      setCards(cards.filter((element) => element._id !== card._id));
+    })
+    .catch((err) => console.log(`Ошибка: ${err.status}`));
   }
   function handleAddPlaceSubmit(newCard) {
     apiReact
@@ -117,7 +118,7 @@ function App() {
             cards={cards}
             onCardLike={handleCardLike}
             onCardDelete={handleCardDelete}
-            // onCoinfPopup = {handleTrashClick}
+            // onConfirmationfPopup = {handleTrashClick}
           />
           <Footer />
         </div>
@@ -145,8 +146,8 @@ function App() {
           onClose={closeAllPopups}
         ></ImagePopup>
 
-        {/* <CoinformationPopup 
-  isOpen={isCoinfPopupOpen}
+        {/* <ConfirmationPopup 
+  isOpen={isConfirmationPopupOpen}
   onClose={closeAllPopups}
   onCardDelete = {handleCardDelete}
    /> */}

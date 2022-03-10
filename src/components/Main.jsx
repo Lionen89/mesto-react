@@ -38,7 +38,7 @@ function Main(props) {
               onCardLike={props.onCardLike}
               onCardDelete={props.onCardDelete}
               onCardClick={props.onCardClick}
-              onCoinfPopup={props.onCoinfPopup}
+              onConfirmationfPopup={props.onConfirmationfPopup}
             />
           );
         })}

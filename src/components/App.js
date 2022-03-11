@@ -91,7 +91,7 @@ function App() {
     // let newCards = cards.filter((element) => element._id !== card._id);
     apiReact.deleteCard(card._id)
     .then(() => {
-      setCards(cards.filter((element) => element._id !== card._id));
+      setCards(cards => cards.filter((element) => element._id !== card._id));
     })
     .catch((err) => console.log(`Ошибка: ${err.status}`));
   }

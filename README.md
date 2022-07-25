@@ -35,7 +35,7 @@
 * Код написан по парадигме ООП;
 * Использована библиотека `React`;
 * Проект раелизован по макету из [Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1);
-* Ссылка на реализованный [проект]().
+* Ссылка на реализованный [проект](https://lionen89.github.io/mesto-react/).
 
 ---
 ## *Планы по доработке:*
@@ -51,5 +51,7 @@
 * `npm run start` - запуск сервера
  
 * `npm run build` - запуск сборки проекта
+
+* `npm run deploy` - публикация сборки на github pages
   
 ---

@@ -28,7 +28,7 @@ function Card(props) {
         className="element__image"
         onClick={handleClick}
         src={`${props.card.link}`}
-      />
+      alt="Картинка"/>
       <button
         className={cardDeleteButtonClassName}
         type="button"
